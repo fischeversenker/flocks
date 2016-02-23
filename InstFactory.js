@@ -22,7 +22,7 @@
 				}
 				
 				var c = (i % 2 == 0) ? "rgba(195,144,212,0.7)" : "rgba(144, 195, 212, 0.7)";
-				insts.push(createInst({color: c, x: xNew, y: yNew, width: wNew, height: hNew, maxSpeed: sNew}));
+				insts.push(createInst({color: c, x: xNew, y: yNew, width: wNew, height: hNew, maxSpeed: sNew, rndmMaxSpeed: options.rndmMaxSpeed}));
 			}
 			return insts;
 		}

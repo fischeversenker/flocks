@@ -9,10 +9,8 @@
 	})();
 
 	function initEventhandlers(game) {
-		$(game.canvas).mouseover(function(){
-			game.following = true;
-		});
 		$(game.canvas).mousemove(function(e){
+			game.following = true;
 			var offset = $(game.canvas).offset();
 			game.targetPosition = {x: e.pageX - offset.left, y: e.pageY - offset.top};
 		});
@@ -28,10 +26,11 @@
 					   y: 300,
 					   width: 13,
 					   height: 13,
-					   maxSpeed: 4,
-					   decr: 0.99};
-		var devs = 	  {x: 500,
-					   y: 300,
+					   maxSpeed: 7,
+					   rndmMaxSpeed: 2,
+					   decr: 0.97};
+		var devs = 	  {x: 13,
+					   y: 13,
 					   width: 7,
 					   height: 7};
 		var n = 	   512;
@@ -39,7 +38,7 @@
 		var canvas = document.getElementById("canvas");
 		
 		
-		var game = new Game(document.getElementById("canvas"), {collision: false, n: n});
+		var game = new Game(document.getElementById("canvas"), {collision: false, follows: true, n: n});
 		game.setInsts(InstFactory.createInsts(options, devs, n));
 		initEventhandlers(game);
 		game.init();
